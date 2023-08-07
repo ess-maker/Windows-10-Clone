@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState} from "react"
 import './css/StartMenu.css'
 import Quit from "./Quit";
 import Settings from "./Settings";
@@ -35,9 +35,9 @@ export default function StartMenu(props) {
     if (QuitMenu === true && SettingsMenu === true) {
         setQuitMenu(!QuitMenu)
     }
-
+ 
     return (
-        <div className={"StartMenu StartMenu" + props.active}>
+        <div className={`StartMenu StartMenu` + props.active}>
             <div className="flex options">
                 <div className="opt"><i className="fa fa-bars"></i><span><b>Start</b></span></div>
                 <div className="bottom">
@@ -48,11 +48,11 @@ export default function StartMenu(props) {
                     <div className="opt" onClick={handleSettingsButton}><i className="fa fa-gear"></i><span>Settings</span></div>
                     <div className="opt" onClick={handlePowerOffButton} ><i className="fa fa-power-off"><span>Power</span></i>
                     </div>
-                    <Quit active={QuitMenu == true ? "active" : ""} />
-                    <Settings active={SettingsMenu == true ? "active" : ""} />
+                    <Quit active={QuitMenu  ? "active" : ""} />
+                    <Settings active={SettingsMenu ? "active" : ""} />
                 </div>
             </div>
-            <div className="flex list">
+            <div className="flex list" >
                 {apps.map(app => (
                     <div key={app.name} className="flex app">
                         <img src={app.logo} alt="" /><span>{app.name}</span>

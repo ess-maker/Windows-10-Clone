@@ -16,7 +16,7 @@ function Settings(props){
             <div className="SettingsButtons"><i className="fa-solid fa-volume-high"></i><span>Sound</span></div>
             <div className="SettingsButtons"><i className="fa-solid fa-database"></i><span>Storage</span></div>
             <div className="SettingsButtons"><i className="fa-solid fa-circle-info"></i><span>About</span></div>
-            <Display active={DisplayMenu===true ? "active" : ""}/>
+            <Display active={DisplayMenu? "active" : ""}/>
         </div>
     )
 }

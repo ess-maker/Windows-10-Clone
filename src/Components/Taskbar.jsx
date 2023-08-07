@@ -1,6 +1,5 @@
-import React,{useState} from "react";
+import React,{useState , useRef , useEffect } from "react";
 import './css/Taskbar.css'
-
 import Icon from "./Icon";
 import StartMenu from "./StartMenu";
 
@@ -11,6 +10,7 @@ export default function Taskbar(props){
     // console.log(props.totalApps[1].running);
 
     const [startMenu,setStartMenu] = useState(false)
+    const [startMenuActive, setStartMenuActive] = useState(false);
 
     function handleStartMenu(){
         setStartMenu(!startMenu)
@@ -19,12 +19,12 @@ export default function Taskbar(props){
     return(
         <div className="flex Taskbar">
             <div className="left">
-            <StartMenu active={startMenu==true?"active":""}/>
+            <StartMenu active={startMenu?"active":""}/>
                 <div className="flex icon startButton" onClick={handleStartMenu}>
                     <i className="fa-brands fa-windows"></i>
                 </div>
                 {props.totalApps.map(runningApp=>(
-                runningApp.running==true&&<Icon key={runningApp.name} appName={runningApp.name} appIcon={runningApp.icon} activeStatus={runningApp.active} />
+                runningApp.running&&<Icon key={runningApp.name} appName={runningApp.name} appIcon={runningApp.icon} activeStatus={runningApp.active} />
                 ))
                 }
             </div>
